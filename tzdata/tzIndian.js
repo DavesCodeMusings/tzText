@@ -1,0 +1,21 @@
+tzIndian = [
+  "Indiana/Indianapolis",
+  "Indiana/Knox",
+  "Indiana/Marengo",
+  "Indiana/Petersburg",
+  "Indiana/Tell_City",
+  "Indiana/Vevay",
+  "Indiana/Vincennes",
+  "Indiana/Winamac",
+  "Antananarivo",
+  "Chagos",
+  "Christmas",
+  "Cocos",
+  "Comoro",
+  "Kerguelen",
+  "Mahe",
+  "Maldives",
+  "Mauritius",
+  "Mayotte",
+  "Reunion"
+];
