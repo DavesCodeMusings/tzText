@@ -38,25 +38,35 @@ echo "Creating plain text files..."
 # Identify files having timezones by looking for lines beginning with 'Zone'.
 ZONEFILES=$(grep -l '^Zone' * | tr '\n' ' ')
 
-# Extract zone names (e.g. America/Chicago) and sort into tznames.txt.
-for FILE in $ZONEFILES; do grep '^Zone' $FILE | awk '{print $2'}; done | sort > tzNames.txt
+# Extract zone names (e.g. America/Chicago) and sort into tzAll.txt.
+for FILE in $ZONEFILES; do grep '^Zone' $FILE | awk '{print $2'}; done | sort > tzAll.txt
 
 # Extract just areas (e.g. the America in America/Chicago) into tzAreas.txt.
-grep '/' tzNames.txt | awk -F/ '{print $1}' | uniq | sort > tzAreas.txt
+grep '/' tzAll.txt | awk -F/ '{print $1}' | uniq | sort > tzAreas.txt
 
 # Extract locations (e.g. the Chicago in America/Chicago) into files named by
 # the areas.  This is made more difficult by some timezones being named with
 # subdirectories in their locations. (e.g. America/Argentina/Buenos_Aires)
-for AREA in $(cat tzAreas.txt); do grep "^${AREA}/" tzNames.txt | awk -F/ '{ printf $2; for(i=3; i<=NF; i++) { printf "/%s", $i }; printf "\n" }' > tz${AREA}.txt; done
+for AREA in $(cat tzAreas.txt); do grep "^${AREA}/" tzAll.txt | awk -F/ '{ printf $2; for(i=3; i<=NF; i++) { printf "/%s", $i }; printf "\n" }' > tz${AREA}.txt; done
 
 # Create JavaScript arrays from the text files.
 echo "Converting text files to JavaScript arrays..."
 for FILE in tz*.txt; do
   BASENAME=$(basename -s .txt $FILE)
-  echo "$BASENAME = [" > ${BASENAME}.js
+  echo "var $BASENAME = [" > ${BASENAME}.js
   sed -e 's/^/  "/' -e 's/$/",/' -e '$s/,//' $FILE >> ${BASENAME}.js
   echo "];" >> ${BASENAME}.js
 done
+
+# Create an associative array object that will allow timezone locations to be
+# accessed like this: 'tzAreas[areaName]'.  The sed script below essentially
+# takes whatever's on the line and makes a key of it that points to an array
+# with the same name, except with a 'tz' prepended.  So a line with 'Africa'
+# turns into '"Africa": tzAfrica,'.  And tzAreas["Africa"] then references
+# the array tzAfrica.
+echo "var tzAreasAssoc = {" > tzAreasAssoc.js
+sed -e 's/\(.*\)/  "\1": tz\1,/' -e '$s/,//' tzAreas.txt >> tzAreasAssoc.js
+echo "}" >> tzAreasAssoc.js
 
 # Create HTML select lists from the text files.
 echo "Converting text files to HTML <select> lists..."
