@@ -21,10 +21,10 @@ does not attempt to capture the timezone rules, only the names.  The goal is
 simply to make it easier to select timezone names with an html form.
 
 What you will find here:
-/bin/tz2text.sh		The script used to do the conversion.
-/tzdata/tz*.html	HTML select lists of areas and locations.
-/tzdata/tz*.js		Javascript arrays of areas and locations.
-/tzdata/tz*.txt		Plain text areas and locations.
+* /bin/tz2text.sh		The script used to do the conversion.
+* /tzdata/tz*.html	HTML select lists of areas and locations.
+* /tzdata/tz*.js		Javascript arrays of areas and locations.
+* /tzdata/tz*.txt		Plain text areas and locations.
 
 
 I am offering the fruits of my labor to the public domain with no warranty
