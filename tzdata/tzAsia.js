@@ -1,4 +1,4 @@
-tzAsia = [
+var tzAsia = [
   "Aden",
   "Almaty",
   "Amman",

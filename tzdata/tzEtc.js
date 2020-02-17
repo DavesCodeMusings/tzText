@@ -1,4 +1,4 @@
-tzEtc = [
+var tzEtc = [
   "GMT",
   "GMT+1",
   "GMT+10",

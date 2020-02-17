@@ -1,4 +1,4 @@
-tzAmerica = [
+var tzAmerica = [
   "Adak",
   "Anchorage",
   "Anguilla",

@@ -1,4 +1,4 @@
-tzAtlantic = [
+var tzAtlantic = [
   "Azores",
   "Bermuda",
   "Canary",

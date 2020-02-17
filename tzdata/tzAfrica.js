@@ -1,4 +1,4 @@
-tzAfrica = [
+var tzAfrica = [
   "Abidjan",
   "Accra",
   "Addis_Ababa",

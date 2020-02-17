@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# tzdata_js.sh - Create text files and JavaScript arrays containing the names
+# tz2text.sh - Create text files and JavaScript arrays containing the names
 # the world's timezones.  These can be used for select lists in HTML pages.
 #
 TZURL=https://data.iana.org/time-zones/releases

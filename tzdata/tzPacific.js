@@ -1,4 +1,4 @@
-tzPacific = [
+var tzPacific = [
   "Apia",
   "Auckland",
   "Bougainville",

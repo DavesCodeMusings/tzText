@@ -1,4 +1,4 @@
-tzAntarctica = [
+var tzAntarctica = [
   "Casey",
   "Davis",
   "DumontDUrville",

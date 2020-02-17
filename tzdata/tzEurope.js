@@ -1,4 +1,4 @@
-tzEurope = [
+var tzEurope = [
   "Amsterdam",
   "Andorra",
   "Astrakhan",

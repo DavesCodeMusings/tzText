@@ -1,12 +1,4 @@
-tzIndian = [
-  "Indiana/Indianapolis",
-  "Indiana/Knox",
-  "Indiana/Marengo",
-  "Indiana/Petersburg",
-  "Indiana/Tell_City",
-  "Indiana/Vevay",
-  "Indiana/Vincennes",
-  "Indiana/Winamac",
+var tzIndian = [
   "Antananarivo",
   "Chagos",
   "Christmas",

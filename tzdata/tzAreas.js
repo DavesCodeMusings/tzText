@@ -1,4 +1,4 @@
-tzAreas = [
+var tzAreas = [
   "Africa",
   "America",
   "Antarctica",
