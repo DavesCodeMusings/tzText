@@ -47,7 +47,7 @@ grep '/' tzNames.txt | awk -F/ '{print $1}' | uniq | sort > tzAreas.txt
 # Extract locations (e.g. the Chicago in America/Chicago) into files named by
 # the areas.  This is made more difficult by some timezones being named with
 # subdirectories in their locations. (e.g. America/Argentina/Buenos_Aires)
-for AREA in $(cat tzAreas.txt); do grep $AREA tzNames.txt | awk -F/ '{ printf $2; for(i=3; i<=NF; i++) { printf "/%s", $i }; printf "\n" }' > tz${AREA}.txt; done
+for AREA in $(cat tzAreas.txt); do grep "^${AREA}/" tzNames.txt | awk -F/ '{ printf $2; for(i=3; i<=NF; i++) { printf "/%s", $i }; printf "\n" }' > tz${AREA}.txt; done
 
 # Create JavaScript arrays from the text files.
 echo "Converting text files to JavaScript arrays..."
