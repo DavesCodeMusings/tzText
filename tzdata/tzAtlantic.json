@@ -1,4 +1,4 @@
-var tzAtlantic = [
+[
   "Azores",
   "Bermuda",
   "Canary",
@@ -10,4 +10,4 @@ var tzAtlantic = [
   "South_Georgia",
   "St_Helena",
   "Stanley"
-];
+]

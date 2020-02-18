@@ -1,4 +1,4 @@
-var tzIndian = [
+[
   "Antananarivo",
   "Chagos",
   "Christmas",
@@ -10,4 +10,4 @@ var tzIndian = [
   "Mauritius",
   "Mayotte",
   "Reunion"
-];
+]

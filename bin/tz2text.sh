@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# tzdata_js.sh - Create text files and JavaScript arrays containing the names
+# tz2text.sh - Create text files and JavaScript arrays containing the names
 # the world's timezones.  These can be used for select lists in HTML pages.
 #
 TZURL=https://data.iana.org/time-zones/releases
@@ -58,28 +58,33 @@ for FILE in tz*.txt; do
   echo "</select>" >> ${BASENAME}.html
 done
 
-# Create JavaScript arrays from the text files.  Add the contents of each
-# individual file to tzNamesLib.js, so everything is in one file if desired.
-echo "Converting text files to JavaScript arrays..."
+# Create JSON files and JavaScript arrays from the text files.  The arrays
+# become part of a single file called tzNamesLib.js.
+echo "Converting text files to JSON and JavaScript arrays..."
 >tzNamesLib.js
 for FILE in tz*.txt; do
   BASENAME=$(basename -s .txt $FILE)
-  echo "var $BASENAME = [" > ${BASENAME}.js
-  sed -e 's/^/  "/' -e 's/$/",/' -e '$s/,//' $FILE >> ${BASENAME}.js
-  echo "];" >> ${BASENAME}.js
-  cat ${BASENAME}.js >> tzNamesLib.js
+
+  # Write to a JSON file named for the Area (continent or ocean) it covers.
+  echo "[" > ${BASENAME}.json
+  sed -e 's/^/  "/' -e 's/$/",/' -e '$s/,//' $FILE >> ${BASENAME}.json
+  echo "]" >> ${BASENAME}.json
+
+  # Append to the JavaScript library.
+  echo "const $BASENAME = [" >> tzNamesLib.js
+  sed -e 's/^/  "/' -e 's/$/",/' -e '$s/,//' $FILE >> tzNamesLib.js
+  echo "];" >> tzNamesLib.js
 done
 
-# Create an associative array object that will allow timezone locations to be
-# accessed like this: 'tzAreas[areaName]'.  The sed script below essentially
-# takes whatever's on the line and makes a key of it that points to an array
-# with the same name, except with a 'tz' prepended.  So a line with 'Africa'
-# turns into '"Africa": tzAfrica,'.  And tzAreas["Africa"] then references
-# the array tzAfrica.
-echo "var tzAreasAssoc = {" > tzAreasAssoc.js
-sed -e 's/\(.*\)/  "\1": tz\1,/' -e '$s/,//' tzAreas.txt >> tzAreasAssoc.js
-echo "};" >> tzAreasAssoc.js
-cat tzAreasAssoc.js >> tzNamesLib.js
+# Append an associative array object to tzNamesLib.js that allows timezone
+# location arrays to be accessed by name, like this: 'tzAreas[areaName]'.
+# The sed script below essentially takes whatever's on the line and makes a
+# key of it that points to an array with the same name, except with a 'tz'
+# prepended.  So a line with 'Africa' turns into '"Africa": tzAfrica,'.  And
+# tzAreas["Africa"] then references the array tzAfrica.
+echo "const tzAreasAssoc = {" >> tzNamesLib.js
+sed -e 's/\(.*\)/  "\1": tz\1,/' -e '$s/,//' tzAreas.txt >> tzNamesLib.js
+echo "};" >> tzNamesLib.js
 
 # Append a function to the contents of tzNamesLib.js to auto-populate HTML
 # select lists.  With this, a single <script src='tzNamesLib.js'></script>

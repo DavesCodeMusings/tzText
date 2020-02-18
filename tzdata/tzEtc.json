@@ -1,4 +1,4 @@
-var tzEtc = [
+[
   "GMT",
   "GMT+1",
   "GMT+10",
@@ -27,4 +27,4 @@ var tzEtc = [
   "GMT-8",
   "GMT-9",
   "UTC"
-];
+]

@@ -1,4 +1,4 @@
-var tzAreas = [
+[
   "Africa",
   "America",
   "Antarctica",
@@ -9,4 +9,4 @@ var tzAreas = [
   "Europe",
   "Indian",
   "Pacific"
-];
+]

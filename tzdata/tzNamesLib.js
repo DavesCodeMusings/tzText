@@ -1,4 +1,4 @@
-var tzAfrica = [
+const tzAfrica = [
   "Abidjan",
   "Accra",
   "Addis_Ababa",
@@ -53,7 +53,7 @@ var tzAfrica = [
   "Tunis",
   "Windhoek"
 ];
-var tzAll = [
+const tzAll = [
   "Africa/Abidjan",
   "Africa/Accra",
   "Africa/Addis_Ababa",
@@ -524,7 +524,7 @@ var tzAll = [
   "Pacific/Wallis",
   "WET"
 ];
-var tzAmerica = [
+const tzAmerica = [
   "Adak",
   "Anchorage",
   "Anguilla",
@@ -674,7 +674,7 @@ var tzAmerica = [
   "Yakutat",
   "Yellowknife"
 ];
-var tzAntarctica = [
+const tzAntarctica = [
   "Casey",
   "Davis",
   "DumontDUrville",
@@ -687,7 +687,7 @@ var tzAntarctica = [
   "Troll",
   "Vostok"
 ];
-var tzAreas = [
+const tzAreas = [
   "Africa",
   "America",
   "Antarctica",
@@ -699,7 +699,7 @@ var tzAreas = [
   "Indian",
   "Pacific"
 ];
-var tzAsia = [
+const tzAsia = [
   "Aden",
   "Almaty",
   "Amman",
@@ -789,7 +789,7 @@ var tzAsia = [
   "Yekaterinburg",
   "Yerevan"
 ];
-var tzAtlantic = [
+const tzAtlantic = [
   "Azores",
   "Bermuda",
   "Canary",
@@ -802,7 +802,7 @@ var tzAtlantic = [
   "St_Helena",
   "Stanley"
 ];
-var tzAustralia = [
+const tzAustralia = [
   "Adelaide",
   "Brisbane",
   "Broken_Hill",
@@ -816,7 +816,7 @@ var tzAustralia = [
   "Perth",
   "Sydney"
 ];
-var tzEtc = [
+const tzEtc = [
   "GMT",
   "GMT+1",
   "GMT+10",
@@ -846,7 +846,7 @@ var tzEtc = [
   "GMT-9",
   "UTC"
 ];
-var tzEurope = [
+const tzEurope = [
   "Amsterdam",
   "Andorra",
   "Astrakhan",
@@ -904,7 +904,7 @@ var tzEurope = [
   "Zaporozhye",
   "Zurich"
 ];
-var tzIndian = [
+const tzIndian = [
   "Antananarivo",
   "Chagos",
   "Christmas",
@@ -917,7 +917,7 @@ var tzIndian = [
   "Mayotte",
   "Reunion"
 ];
-var tzPacific = [
+const tzPacific = [
   "Apia",
   "Auckland",
   "Bougainville",
@@ -958,7 +958,7 @@ var tzPacific = [
   "Wake",
   "Wallis"
 ];
-var tzAreasAssoc = {
+const tzAreasAssoc = {
   "Africa": tzAfrica,
   "America": tzAmerica,
   "Antarctica": tzAntarctica,

@@ -1,4 +1,4 @@
-var tzAsia = [
+[
   "Aden",
   "Almaty",
   "Amman",
@@ -87,4 +87,4 @@ var tzAsia = [
   "Yangon",
   "Yekaterinburg",
   "Yerevan"
-];
+]

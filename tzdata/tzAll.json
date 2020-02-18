@@ -1,4 +1,4 @@
-var tzAll = [
+[
   "Africa/Abidjan",
   "Africa/Accra",
   "Africa/Addis_Ababa",
@@ -468,4 +468,4 @@ var tzAll = [
   "Pacific/Wake",
   "Pacific/Wallis",
   "WET"
-];
+]

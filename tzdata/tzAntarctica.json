@@ -1,4 +1,4 @@
-var tzAntarctica = [
+[
   "Casey",
   "Davis",
   "DumontDUrville",
@@ -10,4 +10,4 @@ var tzAntarctica = [
   "Syowa",
   "Troll",
   "Vostok"
-];
+]

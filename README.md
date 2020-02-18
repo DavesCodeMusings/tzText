@@ -15,16 +15,18 @@ any other such frameworks, nor a PHP backend, just plain HTML.  A quick
 internet search turned up nothing that fit my needs, so I wrote my own.
 
 This project contains a script that starts with the same timezone database
-used with BSD and Linux, and creates plain text files, JavaScript arrays,
-and HTML select lists containing the standard timezone names.  This project
-does not attempt to capture the timezone rules, only the names.  The goal is
-simply to make it easier to select timezone names with an html form.
+used with BSD and Linux, and creates plain text files, HTML select lists,
+JSON arrays, and a JavaScript library to help with auto-populating HTML
+select lists.  This project does not attempt to capture the timezone rules,
+only the names.  The goal is simply to make it easier to select timezone
+names with an HTML form.
 
 What you will find here:
-* /bin/tz2text.sh		The script used to do the conversion.
+* /bin/tz2text.sh	The script used to do the conversion.
+* /tzdata/tzNamesLib.js A javascript library of areas and locations.
 * /tzdata/tz*.html	HTML select lists of areas and locations.
-* /tzdata/tz*.js		Javascript arrays of areas and locations.
-* /tzdata/tz*.txt		Plain text areas and locations.
+* /tzdata/tz*.json	JSON arrays of areas and locations.
+* /tzdata/tz*.txt	Plain text areas and locations.
 
 
 I am offering the fruits of my labor to the public domain with no warranty

@@ -1,4 +1,4 @@
-var tzAustralia = [
+[
   "Adelaide",
   "Brisbane",
   "Broken_Hill",
@@ -11,4 +11,4 @@ var tzAustralia = [
   "Melbourne",
   "Perth",
   "Sydney"
-];
+]
