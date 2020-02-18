@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<!-- This is a sample of how to use the tzText HTML and JavaScript files in an HTML document. -->
+<html lang="en-US">
+<head>
+    <title>tzText Usage</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family:sans-serif;
+        }
+    </style>
+    <script src="../tzdata/tzNames.js"></script>
+    <script>
+        function tzUpdateLocations(areasElementId, locationsElementId) {
+            area = document.getElementById(areasElementId).value;
+            var options = '';
+            for (var i=0; i<tzAreasAssoc[area].length; i++) {
+                options += '<option>' + tzAreasAssoc[area][i] + '</option>\n';
+            } 
+            document.getElementById(locationsElementId).innerHTML = options;
+        }
+    </script>
+</head>
+
+<body onload="tzUpdateLocations('tzAreas', 'tzLocations');">
+    <h1>tzText Usage</h1>
+    <hr>
+
+    <!-- The following select element was copied directly from tzdata/tzAreas.html with the
+         onchange handler added to demonstrate loading options dynamically with JavaScript. -->
+    <select id="tzAreas" onchange="tzUpdateLocations('tzAreas', 'tzLocations')">
+        <option>Africa</option>
+        <option>America</option>
+        <option>Antarctica</option>
+        <option>Asia</option>
+        <option>Atlantic</option>
+        <option>Australia</option>
+        <option>Etc</option>
+        <option>Europe</option>
+        <option>Indian</option>
+        <option>Pacific</option>
+      </select>
+
+      <select id="tzLocations">
+          <option>UTC</option>
+      </select>
+
+      </body>
+</html>
