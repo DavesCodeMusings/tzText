@@ -970,3 +970,15 @@ var tzAreasAssoc = {
   "Indian": tzIndian,
   "Pacific": tzPacific
 };
+/*
+  Auto-fill locations select list based on the currently selected area.
+  Simply pass the ids of the area element and the location element.
+*/
+function tzUpdateLocations(areasElementId, locationsElementId) {
+  area = document.getElementById(areasElementId).value;
+  var options = '';
+  for (var i=0; i<tzAreasAssoc[area].length; i++) {
+    options += '<option>' + tzAreasAssoc[area][i] + '</option>\n';
+  } 
+  document.getElementById(locationsElementId).innerHTML = options;
+}

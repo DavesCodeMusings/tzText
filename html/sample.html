@@ -10,23 +10,14 @@
             font-family:sans-serif;
         }
     </style>
-    <script src="../tzdata/tzNames.js"></script>
-    <script>
-        function tzUpdateLocations(areasElementId, locationsElementId) {
-            area = document.getElementById(areasElementId).value;
-            var options = '';
-            for (var i=0; i<tzAreasAssoc[area].length; i++) {
-                options += '<option>' + tzAreasAssoc[area][i] + '</option>\n';
-            } 
-            document.getElementById(locationsElementId).innerHTML = options;
-        }
-    </script>
+    <script src="../tzdata/tzNamesLib.js"></script>
 </head>
 
 <body onload="tzUpdateLocations('tzAreas', 'tzLocations');">
     <h1>tzText Usage</h1>
     <hr>
-
+    <p>Select your timezone.</p>
+    
     <!-- The following select element was copied directly from tzdata/tzAreas.html with the
          onchange handler added to demonstrate loading options dynamically with JavaScript. -->
     <select id="tzAreas" onchange="tzUpdateLocations('tzAreas', 'tzLocations')">

@@ -9,4 +9,4 @@ var tzAreasAssoc = {
   "Europe": tzEurope,
   "Indian": tzIndian,
   "Pacific": tzPacific
-}
+};
