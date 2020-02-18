@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# tz2text.sh - Create text files and JavaScript arrays containing the names
+# tzdata_js.sh - Create text files and JavaScript arrays containing the names
 # the world's timezones.  These can be used for select lists in HTML pages.
 #
 TZURL=https://data.iana.org/time-zones/releases
@@ -49,13 +49,16 @@ grep '/' tzAll.txt | awk -F/ '{print $1}' | uniq | sort > tzAreas.txt
 # subdirectories in their locations. (e.g. America/Argentina/Buenos_Aires)
 for AREA in $(cat tzAreas.txt); do grep "^${AREA}/" tzAll.txt | awk -F/ '{ printf $2; for(i=3; i<=NF; i++) { printf "/%s", $i }; printf "\n" }' > tz${AREA}.txt; done
 
-# Create JavaScript arrays from the text files.
+# Create JavaScript arrays from the text files.  Add the contents of each
+# individual file to tzNames.js, so everything is in one file if desired.
 echo "Converting text files to JavaScript arrays..."
+>tzNames.js
 for FILE in tz*.txt; do
   BASENAME=$(basename -s .txt $FILE)
   echo "var $BASENAME = [" > ${BASENAME}.js
   sed -e 's/^/  "/' -e 's/$/",/' -e '$s/,//' $FILE >> ${BASENAME}.js
   echo "];" >> ${BASENAME}.js
+  cat ${BASENAME}.js >> tzNames.js
 done
 
 # Create an associative array object that will allow timezone locations to be
@@ -66,7 +69,8 @@ done
 # the array tzAfrica.
 echo "var tzAreasAssoc = {" > tzAreasAssoc.js
 sed -e 's/\(.*\)/  "\1": tz\1,/' -e '$s/,//' tzAreas.txt >> tzAreasAssoc.js
-echo "}" >> tzAreasAssoc.js
+echo "};" >> tzAreasAssoc.js
+cat tzAreasAssoc.js >> tzNames.js
 
 # Create HTML select lists from the text files.
 echo "Converting text files to HTML <select> lists..."
