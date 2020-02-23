@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>TzText Project</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <script src="tzNamesLib.js"></script>
+</head>
+
+<body onload="tzUpdateLocations('time-area', 'time-location');">
+  <header>
+    <h1>TzText</h1>
+    <p>The world's timezones in plain text, JSON, JavaScript arrays, and HTML select lists.</p>
+  </header>
+
+  <nav>
+    <h2>Quick Links</h2>
+    <ul>
+      <li><a href="https://github.com/DavesCodeMusings/tzText/" target="_blank">tzText GitHub Repo</a></li>
+      <li><a href="https://www.iana.org/time-zones/" target="_blank">Timezone Database</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>About</h2>
+    <p>This project was started because I needed a way to select zoneinfo paths from a web site. I was using static html
+      (no PHP) and JavaScript only. I quickly found that JavaScript has no concept of timezones other than what it
+      detects from the browser. I did not want to use a heavyweight library like JQuery, so I ended up creating my own.
+    </p>
+
+    <h2>What is tzText?</h2>
+    <ul>
+      <li>A JavaScript library called tzNamesLib.js</li>
+      <li>HTML select lists of areas and locations.</li>
+      <li>JSON arrays of areas and locations.</li>
+      <li>Plain text lists of areas and locations.</li>
+      <li>A shell script that extracts names from the timezone database.</li>
+    </ul>
+
+    <h2>A working example</h2>
+    <form action="javascript: alert('Zoneinfo path: /usr/share/zoneinfo/' + document.getElementById('time-area').value + '/' + document.getElementById('time-location').value)">
+      <!-- The areas select list was copied directly from tzdata/tzAreas.html  The onchange event calls tzUpdateLocations to populate the locations select list. -->
+      <select id="time-area" onchange="tzUpdateLocations('time-area', 'time-location');">
+        <option>Africa</option>
+        <option>America</option>
+        <option>Antarctica</option>
+        <option>Asia</option>
+        <option>Atlantic</option>
+        <option>Australia</option>
+        <option selected>Etc</option>
+        <option>Europe</option>
+        <option>Indian</option>
+        <option>Pacific</option>
+      </select>
+      /
+      <select id="time-location"></select>
+      <input type="submit" value="Show zoneinfo path">
+    </form>
+    <p>Obviously, you'll want to do something more exiting than a pop-up alert. To see how everything works, view the source of this page. Look for tzNamesLib.js and tzUpdateLocations().</p>
+
+    <h2>What tzText is not</h2>
+    <ul>
+      <li>tzText has no concept of timezone rules or daylight saving changes. It is only a list of areas and locations.
+      </li>
+    </ul>
+
+    <h2>License</h2>
+    <p>I am placing tzText in the public domain in hopes that it will be useful to others. There is no support, no
+      warranty, nor is there a guaranty of fitness for any particular purpose.</p>
+  </main>
+
+  <footer>
+    <p>tzText is not associated with, nor is it endorsed by the IANA timezone database.</p>
+  </footer>
+</body>
+
+</html>
