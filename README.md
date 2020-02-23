@@ -1,5 +1,6 @@
 # tzText
-The world's timezones in plain text, JavaScript arrays, and HTML select lists.
+The world's timezones in plain text, JSON, JavaScript arrays, and HTML select
+lists.
 
 BSD and Linux variants have timezone information for the entire world stored
 in /usr/share/zoneinfo.  It is organized by directories of "areas" (named for
