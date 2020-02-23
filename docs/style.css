@@ -2,9 +2,6 @@
 * {
     box-sizing: border-box;
 }
-html {
-    background: #666666;
-}
 body {
     background: #FFFFFF;
     color: #333333;
@@ -20,6 +17,9 @@ header {
     padding: 0.5em;
     text-align: center;
 }
+nav, main, aside {
+    padding: 0.25em;
+}
 nav li {
     padding-top: 0.5em;
 }
@@ -34,6 +34,9 @@ footer {
 
 /* Tweaks for tablets and larger. */
 @media screen and (min-width: 768px) {
+    html {
+        background: #666666;
+    }
     body {
         border-radius: 1em;
         box-shadow: 0 0 1em #333333;    
@@ -42,6 +45,9 @@ footer {
         border-radius: 1em 1em 0 0;
         padding: 2em;
     } 
+    header h1 {
+        font-size: 300%;
+    }
     footer {
         border-radius: 0 0 1em 1em;
         padding: 1em;
